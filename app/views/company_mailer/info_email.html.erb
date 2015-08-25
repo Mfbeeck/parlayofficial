@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+      body {
+        font-family: sans-serif;
+        font-size: 1.5vw;
+        color: #4E4E56;
+      }
+
+      span {
+        color: #E83F6F;
+      }
+
+      a {
+        color: #E83F6F;
+      }
+
+      a:hover {
+        color: #FFBF00;
+      }
+
+      #parlayvous {
+        color: #32936F;
+        font-weight: bold;
+      }
+
+      #email_option {
+        font-size: 0.8vw;
+        text-decoration: underline;
+        color: #2274A5;
+      }
+    </style>
+
+  </head>
+  <body>
+    <h2>You have joined the fun. Soon you will find out if you were the lucky winner of this item: <%= @deal.name %>.</h2>
+    <p>
+      We wish you good luck!
+    </p>
+    <p>The <span id="parlayvous">ParlayVous</span> Team</p>
+    <br>
+    <p id="email_option">* To deactivate/activate email notifications or text notifications, please visit your notifications settings page at ParlayVous.</p>
+  </body>
+</html>

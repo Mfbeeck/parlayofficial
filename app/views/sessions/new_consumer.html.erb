@@ -1,0 +1,22 @@
+ <br/>
+ <%= form_tag login_consumer_path, :class => "smart-green" do |f| %>
+    <h1>Login</h1>
+      <label>
+        <span>Username: </span><br/>
+        <%= text_field_tag :username, nil, placeholder: "Username" %>
+      </label>
+      <br/>
+      <label>
+        <span>Password: </span><br/>
+        <%= password_field_tag :password, nil, placeholder: "Password" %>
+      </label>
+      <br />
+      <label style = "display: inline-block; margin-right: -10px">  
+        <%= submit_tag 'Login', :class => 'button' %>
+      </label> 
+      <label style = "display: inline-block; margin-left: 15px; margin-top: 0px;">
+        <%= link_to "Signup", new_consumer_path, method: :get, :class => 'signup-link' %>
+      </label>
+      <br/>
+  <% end %>
+  <br/>

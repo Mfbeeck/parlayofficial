@@ -1,0 +1,116 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+.deal_block_consumer {
+	width: 24vw;
+	display: inline-block;
+}
+
+.deal_block {
+	width: 24vw;
+	display: inline-block;
+	padding-bottom: 2vh;
+}
+
+.deals_list {
+	padding-left: 1.5vw;
+	margin-top: 0.5vh;
+	padding-bottom: 1vh;
+ 	border-radius: 10px;
+}
+
+.checkbox-group {
+	text-align: center;
+}
+
+.main_title {
+	padding-top: 3vh;
+}
+
+#product_price a {
+	z-index: 4;
+	background: #32936f;
+	margin-right: .5vw;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-bottom: -5vh;
+	position: absolute;
+  color: white;
+  border-radius: 5px;
+}
+
+#image_product a:hover {
+	padding-bottom: -.5vw;
+	z-index: -1;
+	border-bottom: solid #E83F6F 3px;
+	opacity: .8;
+	font-size: 1vw;
+}
+
+#filter_labels {
+	 -webkit-margin-top: -3vw;
+	 padding-top: -3vw;
+	padding-bottom: 3vw;
+	font-size: 1vw;
+}
+
+.deal_image_div {
+	float: left;
+	margin-left: 3vw;
+	margin-top: 2vw;
+}
+
+.deal_description_display p {
+	font-size: 1.4vw;
+}
+.deal_detail_div {
+	display: inline-block;
+}
+.deal_show_image_tag {
+	border: dashed gray 1px;
+	border-radius: 2px;
+	width: 35vw;
+	height: auto;
+	margin-top: -4vh;
+	margin-left: 10vw;
+}
+
+.stripe-button-el {
+	width: 10vw;
+}
+
+.deal_description_div {
+	margin-left: 60vw;
+	width: 40vw;
+}
+
+.deal_description_display form {
+	font-size: 1.4vw;
+}
+.comments {
+clear: both;
+margin-top: 5vh;
+}
+textarea.placeholder {
+	margin-left: 26vw;
+}
+.comment_create_form {
+	margin-left: 26vw;
+}
+#new_deal_link a {
+	color: black;
+	margin-left: .8vw;
+	padding-left: 1vw;
+}
+
+#new_deal_link a:hover {
+	color: white;
+	background-color: black;
+	border-radius: 2vw;
+	padding-right: 1vw;
+}
+
+.supplier-deals-list {
+	display: inline-block;
+}

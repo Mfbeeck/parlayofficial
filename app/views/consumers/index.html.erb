@@ -1,0 +1,15 @@
+<div class = "about-section">
+
+<h2 style = "margin: auto">All Consumers</h2>
+
+<ul id="articles">
+  <% @consumers.each do |consumer| %>
+    <li style = "text-align: center; margin-left: -10px">
+      <%= link_to consumer.username.capitalize, consumer_path(consumer) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Create a New Consumer", new_consumer_path, :id => "create-consumer" %>
+
+</div>

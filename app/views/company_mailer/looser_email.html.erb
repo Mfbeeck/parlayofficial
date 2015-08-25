@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+      body {
+        font-family: sans-serif;
+        font-size: 1.5vw;
+        color: #4E4E56;
+      }
+
+      span {
+        color: #2274A5;
+      }
+
+      a {
+        color: #E83F6F;
+      }
+
+      a:hover {
+        color: #FFBF00;
+      }
+
+      #parlayvous {
+        color: #32936F;
+        font-weight: bold;
+      }
+
+      #email_option {
+        font-size: 0.8vw;
+        text-decoration: underline;
+        color: #2274A5;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <h3>Hi, <%= @user.first_name %>. Participant <%= @deal.winning_consumer %> won this item: <%= @deal.name %>.</h3>
+    <p>
+      We wish you better luck the next time.
+    </p>
+    <p>
+      Thanks for participating. Keep finding exciting prices at parlay.vous@gmail.com!
+    </p>
+    <p>
+      The <span id="parlayvous">ParlayVous</span> Team
+    </p>
+    <br>
+    <p id="email_option">* To deactivate/activate email notifications or text notifications, please visit your notifications settings page at ParlayVous.</p>
+  </body>
+
+</html>

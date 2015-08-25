@@ -1,0 +1,24 @@
+<div class = "about-section">
+  <div class="supplier_index">
+<br/>
+<h2>Our Charities</h2>
+<br/>
+<% @suppliers.each do |supplier| %>
+  <ul id = "charities-list">
+    <li><strong>Charity Name:</strong> <%= supplier.company_name %></li>
+    <li><strong>Username:</strong> <%= supplier.username %></li>
+    <li><strong>E-mail:</strong> <%= supplier.email %></li>
+    <li><strong>Address:</strong> <%= supplier.address %></li>
+    <li>
+      <%= link_to 'Show', supplier %> |
+      <%= link_to 'Edit', edit_supplier_path(supplier) %> |
+      <%= link_to 'Destroy', supplier, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+    <br/>
+<% end %>
+  </ul>
+<p class="new_charity"><%= link_to 'Create Charity', new_supplier_path, :id => "create-charity" %> | <%= link_to 'Back', supplier_path(current_supplier), :id => "create-charity" %></p>
+
+</div>
+</div>
+<br/>

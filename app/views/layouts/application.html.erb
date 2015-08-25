@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ParlayVous</title>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Muli|Source+Code+Pro|Hind:400,600' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      //our code will go here
+
+  });
+  </script>
+  <%= csrf_meta_tags %>
+
+  <meta property="og:title" content="ParlayVous" />
+  <meta property="og:description" content="Raffle Hosting Site" />
+  <meta property="og:url" content="http://www.parlayvous.co" />
+  <meta property="og:image" content="davidslogo.png" />
+</head>
+<body>
+	<div class="entire-page">
+		<div id="fb-root"></div>
+		<script>
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=201664189890797";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+
+     window.fbAsyncInit = function(){  // this gets triggered when FB object gets initialized
+     	console.log("FB Object initiated");
+            FB.XFBML.parse(); // now we can safely call parse method
+        };
+        </script>
+
+        <script type="text/javascript">
+        $(document).ready(function() {
+        	$('#dropdown').click(function() {
+        		$('#dropdown > ul').toggleClass('ul_show');
+        		$('#dropdown > ul').toggleClass('ul_hide');
+        	});
+
+            $('#dropdown').click(function() {
+                $('.drop').toggleClass('drop-border');
+            });
+
+        });
+        </script>
+        <nav class="navbar">
+        	<ul class="myMenu">
+        		<li id = "dropdown" class = "drop">&nbsp;<%= image_tag("http://cdn.flaticon.com/png/256/23182.png", :size => "25x25", :id => "dropdown-image")%>
+        			&nbsp;&nbsp;
+        			<span id="product_type">Products&nbsp;</span></a><%= image_tag("http://aoindia.in/img/icon-arrow-down-b-128.png", :size => "17x17", :id => "dropdown-image")%>
+        			<ul class = "ul_hide">
+        				<li id="dropdown-links"><%= link_to 'All Products', deals_path %></li>
+        				<li id="dropdown-links">
+        					<%= link_to 'Electronics', deals_index_electronics_path %>
+        				</li>
+        				<li id="dropdown-links">
+        					<%= link_to 'Video Games', deals_index_videogames_path %>
+        				</li>
+        			</ul>
+        		</li>
+        	</ul>
+        	<li id="logo"><%= link_to image_tag("davidslogo.png", :size => "225x50")  , deals_path%></li>
+
+        	<% if current_supplier || current_consumer %>
+            	<% if current_supplier %>
+            	<li class="login_link">
+            		<%= link_to "Username: #{current_supplier.username.capitalize}", supplier_path(current_supplier)%>
+            		<%= link_to "Log out", logout_path, method: "delete" %>
+            	</li>
+            	<% else %>
+            	<li class="login_link">
+            		<%= link_to "#{current_consumer.username.capitalize}", consumer_path(current_consumer)%>
+            		&nbsp;
+            		<span class= "points_link"><%= "Points:" %></span><span class="points"><%= "#{current_consumer.total_points}" %></span>
+            		&nbsp;
+            		<%= link_to "Log out", logout_path, method: "delete" %>
+            	</li>
+            	<% end %>
+        	<% else %>
+        	<li class="login_link"><%= link_to 'Log in', new_consumer_session_path %>
+        		&nbsp;
+        		<span class='login'><%= link_to 'Sign up', new_consumer_path %>
+    		</li>
+    		<%end%>
+        	</ul>
+        </nav>
+
+        <div class="yield"><%= yield %></div>
+
+
+        	<div class="footer">
+        		<ul id="socialmedia">
+        			<li id="ft-fb"><a href="https://www.facebook.com/pages/ParlayVous/803565673094248"><img src="http://cdn.mysitemyway.com/icons-watermarks/simple-black/social-media/social-media_facebook-square/social-media_facebook-square_simple-black_512x512.png" width=25px hieght:25px></a></li>
+        			<li id="ft-twr"><a href="https://twitter.com/ParlayVous6"><img src="https://cdn1.iconfinder.com/data/icons/capsocial/500/twitter-512.png" width=25px hieght:25px></a></li>
+        			<li id="ft-mail"><a href="mailto:parlay.vous@gmail.com"><img src="http://freeiconbox.com/icon/256/27958.png" width=25px hieght:25px></a></li>
+        		</ul>
+        		<span class="footercopy">
+        			<li><%= link_to 'About us', about_path %> | &copy; 2015 Powered by ParlayVous. | <%= link_to 'Charity login', new_supplier_session_path %></li>
+        		</span>
+        	</div>
+
+    </div>
+</body>
+
+
+</html>

@@ -1,0 +1,73 @@
+ <script language="JavaScript">
+//   window.onbeforeunload = confirmExit;
+//   function confirmExit()
+//   {
+//     return "Please confirm your address before leaving this page. If you clicked the 'Confirm Shipping Address' button  already, click on 'Leave this page'.";
+//   }
+// </script>
+
+<br/>
+<div class = "order-confirm">
+<h1>Please confirm your shipping address.</h1>
+<br/>
+<p class = "current_order_address"><%= @order.address.capitalize%></p>
+<br/>
+<div class = "confirm-old-address">
+<%= radio_button_tag(:shipping, "current_address", checked: true) %><%= label_tag(:shipping, "Use The Address Above") %>
+</div>
+<div class = "confirm-new-address">
+<%= radio_button_tag(:shipping, "new_address") %><%= label_tag(:shipping, "Enter A Different Address Below") %>
+</div>
+
+<div class = "general_address_form">
+
+<%= form_for @order do |f| %>
+
+  <div class = "new_address_form">
+  <br/>
+    <p><strong><%= f.label "Shipping Address:" %></strong></p>
+    <p><%= f.text_field :address %></p>
+  </div>
+  <br/>
+  <p>
+    <%= f.submit "Confirm Shipping Address", :class => 'button'  %>
+  </p>
+
+<% end %>
+
+</div>
+</div>
+<br/>
+
+<script>
+
+  $('.new_address_form').hide();
+
+  $('input:radio[name="shipping"]').click(function() {
+    if ($("input[type='radio']:checked").val() == "current_address"){
+        var defaultValue = $('.current_order_address').text();
+        $('.new_address_form').hide();
+        $('#order_address').replaceWith("<input type='hidden' name='order[address]' id='order_address' value='" + defaultValue + "'>");
+      }
+
+    else if ($("input[type='radio']:checked").val() == "new_address"){
+        $('.new_address_form').show();
+        $('#order_address').replaceWith('<input type="text" name="order[address]" id="order_address">');
+      }
+    });
+
+  //   var value = $(this).val();
+  //   switch (value) {
+  //   case 'current_address':
+  //       $('.new_address').hide();
+  //       break;
+  //   case 'new_address':
+  //     $('.new_address').show();
+  //     $('input#order_address').val("");
+  //       return false;
+
+  //       break;
+  //     }
+
+
+</script>

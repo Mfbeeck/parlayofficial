@@ -1,0 +1,29 @@
+<br/>
+  <%= form_for(@supplier, :html => {:class => "update-green"}) do |f| %>
+    <h1>Update Your Information</h1>
+    <ul class = "errors">
+    <% @supplier.errors.full_messages.each do |error| %>
+      <li style="color:red"><%= error %></li>
+    <% end %>
+    </ul>
+      <label>
+        <span id = "required">Charity Name: </span><br/><br/>
+        <%= f.text_field :company_name, placeholder: "E-mail"%>
+      </label>
+      <label>
+        <span id = "required">Email: </span><br/><br/>
+        <%= f.email_field :email, placeholder: "E-mail"%>
+      </label>
+      <label>
+        <span id = "required">Address: </span><br/><br/>
+        <%= f.text_field :address, placeholder: "Address"%>
+      </label>
+      <br/>
+      <label style = "display: inline-block; margin-right: -10px; margin-top: 10px">
+        <%= link_to 'Back to Profile', supplier_path(@supplier), :class =>'back-button' %><br><br>
+      </label>
+      <label style = "display: inline-block; float: right; margin-right: -10px; margin-top: 0px;">  
+        <%= f.submit 'Update', :class => 'button' %>
+      </label>
+  <% end %>
+<br/>

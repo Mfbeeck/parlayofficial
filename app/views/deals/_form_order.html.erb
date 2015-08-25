@@ -1,0 +1,25 @@
+<h3>Pay below to enter the raffle for a brand new <%= "#{@deal.name}" %> </h3>
+
+<ul class = "checkout_options">
+  <li class = "pay_with_points">
+    <%= form_tag create_path(@deal) do %>
+      <% @amount = @deal.price %>
+      <% @name = @deal.name %>
+
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-email=<%= current_consumer.email %>
+              data-name= "<%= @name%>"
+              data-key= "<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-amount= <%= @amount * 100 %>
+              data-description= "<%= @deal.description %>"
+              data-bitcoin= false
+              data-image="<%=@deal.url%>"></script>
+    <% end %>
+  </li>
+  &nbsp;&nbsp;
+  <% if current_consumer.total_points >= (@deal.price.to_i*2)%>
+    <li class = "pay_with_points">
+      <%= button_to "Pay with Points", create_points_order_path(@deal), class: "points-order-button", data: { :confirm => "Are you sure you want to pay with points?" }%>
+    </li>
+  <%end%>
+</ul>
