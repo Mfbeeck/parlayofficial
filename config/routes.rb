@@ -52,7 +52,7 @@ Rails.application.routes.draw do
     resources :deals
   end
 
-  delete 'logout' => 'sessions#destroy'
+  get 'logout' => 'sessions#destroy'
 
   get 'logout_supplier' => 'sessions#destroy'
 
