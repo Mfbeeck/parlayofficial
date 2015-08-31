@@ -95,6 +95,8 @@ class OrdersController < ApplicationController
         end
         CompanyMailer.info_email(new_participant, @deal).deliver if new_participant.result_email
         #Below is the logic for picking a winner!!!
+        
+        # CODE BELOW WILL HAVE TO BE MOVED:
         if @deal.orders.count >= @deal.threshold
           @array_of_orders = @deal.orders(:select => :id).collect(&:id)
           #The variable below captures the sum of the last three digits of the current time
