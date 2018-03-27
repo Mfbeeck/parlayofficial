@@ -2,6 +2,6 @@
 
 Ruby on Rails e-commerce webapp where you can host online raffles for a variety of products.
 
-Developed in 2015 at Wyncode Miami by Carlos Quiroga, David Isaza and Matias Beeck.
+Developed in 2015 at Wyncode Miami by CQuiroga, DIsaza and MBeeck.
 
 
